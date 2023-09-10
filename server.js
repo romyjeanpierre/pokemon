@@ -14,7 +14,7 @@ const app = express();
 app.set("view engine", "jsx");
 app.engine("jsx", jsxEngine());
 
-
+//Routes
 app.get("/", (req, res) => {
     res.send(`
     <h1>Welcome to the Pokemon App!</h1>
@@ -26,16 +26,15 @@ app.get("/", (req, res) => {
 // Display Pokemon data 
 
 app.get("/pokemon", (req, res) => {
-    res.render("Index", {
-      pokemon: pokemon,
+    res.render("Index", {pokemon,
     });
   });
 
 
-
-
-
-
+app.get("/pokemon/:id", (req, res) => {
+    res.send(req.params.id);
+  });
+  
 
 // Listen to the port
 app.listen(PORT, () => {

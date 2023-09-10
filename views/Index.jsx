@@ -1,33 +1,31 @@
 const React = require("react");
 
-const viewList = {
+const myStyle = {
   color: "#ffffff",
   backgroundColor: "#000000",
 };
 
-function Index(props) {
-    const { pokemon } = props;
-    console.log("pokemon");
-    return (
-      <div style={viewList}>
-        <h1>See All The Pokemon!</h1>
+
+
+function capFirstLet(string){
+    return string[0].toUpperCase() + string.slice(1);
+}
+
+
+
+function Index ({pokemon}){
+    return (<div style={myStyle}>
+        <h1> List of Pokemon!</h1>
         <ul>
-          {pokemon.map((pm, i) => {
-            const firstLet = pm.name.charAt(0);
-            const firstLetCap = firstLet.toUpperCase();
-            const restOfLetters = pm.name.slice(1);
-            pm.name = firstLetCap + restOfLetters;
-  
-            return (
-              <li key={i}>
-                {pm.name} <br />
-                <img src={pm.img} alt='Image' />
-              </li>
-            );
-          })}
+            {pokemon.map((pokemon, i) => {
+                    return(
+                        <li>
+                            {capFirstLet(pokemon.name)}
+                        </li>)
+                })
+            }
         </ul>
-      </div>
-    );
-  }
-  
-  module.exports = Index;
+    </div>)
+}
+
+module.exports = Index;
