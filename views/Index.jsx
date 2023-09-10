@@ -19,7 +19,7 @@ function Index ({pokemon}){
         <ul>
             {pokemon.map((pokemon, i) => {
                     return(
-                        <li>
+                        <li><a href={`/pokemon/${i}`}></a>
                             {capFirstLet(pokemon.name)}
                         </li>)
                 })
@@ -27,5 +27,10 @@ function Index ({pokemon}){
         </ul>
     </div>)
 }
+
+
+
+
+
 
 module.exports = Index;
