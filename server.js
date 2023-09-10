@@ -32,8 +32,12 @@ app.get("/pokemon", (req, res) => {
 
 
 app.get("/pokemon/:id", (req, res) => {
-    res.send(req.params.id);
-  });
+    const { id } = req.params;
+
+    res.render('Show', {
+        pokemon: pokemon[id]
+    });
+});
   
 
 // Listen to the port

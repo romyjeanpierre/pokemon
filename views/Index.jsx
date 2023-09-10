@@ -14,23 +14,21 @@ function capFirstLet(string){
 
 
 function Index ({pokemon}){
-    return (<div style={myStyle}>
-        <h1> List of Pokemon!</h1>
+    return (<main>
+        <h1 style={myStyle}>List of Pokemon</h1>
         <ul>
-            {pokemon.map((pokemon, i) => {
+            {
+                pokemon.map((pokemon, i) => {
                     return(
-                        <li><a href={`/pokemon/${i}`}></a>
+                        <li> <a href={`/pokemon/${i}`}>
                             {capFirstLet(pokemon.name)}
-                        </li>)
+                        </a>
+                        </li>
+                    )
                 })
             }
         </ul>
-    </div>)
+        
+    </main>)
 }
-
-
-
-
-
-
 module.exports = Index;
